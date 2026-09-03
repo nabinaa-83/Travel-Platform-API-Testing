@@ -20,3 +20,12 @@ This repository contains the comprehensive QA test cases and API testing documen
 | TC_GAL_003 | `POST /api/gallery` | **[Negative Test]** Verify system blocks unsupported file uploads. | `.exe` or `.txt` file payload | `400 Bad Request`, payload rejected with validation error. |
 | TC_GAL_004 | `GET /api/gallery/{id}` | Verify retrieval of a single specific gallery image asset by ID. | Valid target Image ID | `200 OK`, returns exact object details matching the ID. |
 | TC_GAL_005 | `GET /api/gallery/{id}` | **[Negative Test]** Verify request response for a non-existent item ID. | Non-existent string ID | `404 Not Found`, returns standard resource error message. |
+
+
+## 3. Itinerary API Testing (`/api/itinerary/{id}`)
+
+| Test Case ID | Method | Scenario / Description | Input / Condition | Expected Result |
+| :--- | :--- | :--- | :--- | :--- |
+| TC_ITI_001 | `PATCH` | Verify partial update of specific itinerary details (e.g., modifying price). | Valid ID and partial JSON payload | `200 OK`, updates only the targeted fields. |
+| TC_ITI_002 | `DELETE` | Verify a valid itinerary entry can be removed permanently. | Existing valid Itinerary ID | `200 OK` or `204 No Content`, resource removed. |
+| TC_ITI_003 | `DELETE` | **[Negative Test]** Verify that unauthorized users cannot delete an itinerary. | Valid ID but missing login token | `401 Unauthorized` or `403 Forbidden`, entry remains intact. |
