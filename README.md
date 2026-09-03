@@ -29,3 +29,14 @@ This repository contains the comprehensive QA test cases and API testing documen
 | TC_ITI_001 | `PATCH` | Verify partial update of specific itinerary details (e.g., modifying price). | Valid ID and partial JSON payload | `200 OK`, updates only the targeted fields. |
 | TC_ITI_002 | `DELETE` | Verify a valid itinerary entry can be removed permanently. | Existing valid Itinerary ID | `200 OK` or `204 No Content`, resource removed. |
 | TC_ITI_003 | `DELETE` | **[Negative Test]** Verify that unauthorized users cannot delete an itinerary. | Valid ID but missing login token | `401 Unauthorized` or `403 Forbidden`, entry remains intact. |
+
+
+## 4. Trip Info & Advanced Package Actions
+
+| Test Case ID | Endpoint & Method | Scenario / Description | Input / Condition | Expected Result |
+| :--- | :--- | :--- | :--- | :--- |
+| TC_ADV_001 | `DELETE /api/trek-package/{id}` | Verify permanent removal of a package from the inventory. | Existing valid Package ID | `200 OK`, package status removed. |
+| TC_ADV_002 | `POST /api/trip-info` | Verify creation of new destination trip details. | Valid trip JSON payload | `201 Created`, entry created. |
+| TC_ADV_003 | `GET /api/trip-info` | Verify retrieval of structured trip information data. | Valid request parameters | `200 OK`, returns trip details array. |
+| TC_ADV_004 | `PATCH /api/trip-info/{id}` | Verify partial data modifications to existing trip configurations. | Valid ID and partial fields | `200 OK`, targets specified changes. |
+| TC_ADV_005 | `DELETE /api/trip-info/{id}` | Verify administrative erasure of a trip information card. | Existing valid Trip Info ID | `204 No Content` or `200 OK`. |
